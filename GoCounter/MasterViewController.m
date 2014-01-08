@@ -1,21 +1,23 @@
 //
 //  MasterViewController.m
-//  GoCounter
+//  Customers Counter
 //
-//  Created by mihata on 1/9/14.
+//  Created by mihata on 1/6/14.
 //  Copyright (c) 2014 mihata. All rights reserved.
 //
 
 #import "MasterViewController.h"
-
 #import "DetailViewController.h"
+#import "Campaign.h"
 
 @interface MasterViewController ()
+
+@property (strong, nonatomic) UITextField *nameField;
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
 @end
 
 @implementation MasterViewController
-
+@synthesize nameField;
 - (void)awakeFromNib
 {
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
@@ -29,11 +31,22 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    self.navigationItem.leftBarButtonItem = self.editButtonItem;
+//    self.navigationItem.leftBarButtonItem = self.editButtonItem;
 
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
     self.navigationItem.rightBarButtonItem = addButton;
     self.detailViewController = (DetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
+    
+    nameField = [[UITextField alloc] initWithFrame:CGRectMake(10.0f, 10.0f, 256.0f, 32.0f)];
+    [nameField setBackgroundColor:[UIColor whiteColor]];
+    [nameField setTextAlignment:NSTextAlignmentCenter];
+    //To make the border look very close to a UITextField
+    [nameField.layer setBorderColor:[[UIColor colorWithRed:152 green:152 blue:152 alpha:1.0] CGColor]];
+    [nameField.layer setBorderWidth:2.0];
+    
+    //The rounded corner part, where you specify your view's corner radius:
+    nameField.layer.cornerRadius = 5;
+    nameField.clipsToBounds = YES;
 }
 
 - (void)didReceiveMemoryWarning
@@ -44,29 +57,48 @@
 
 - (void)insertNewObject:(id)sender
 {
-    NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
-    NSEntityDescription *entity = [[self.fetchedResultsController fetchRequest] entity];
-    NSManagedObject *newManagedObject = [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:context];
     
-    // If appropriate, configure the new managed object.
-    // Normally you should use accessor methods, but using KVC here avoids the need to add a custom class to the template.
-    [newManagedObject setValue:[NSDate date] forKey:@"timeStamp"];
+    UIAlertView *alertView = [[UIAlertView alloc ] initWithTitle:@"title"
+                                                         message:@"text"
+                                                        delegate:nil
+                                               cancelButtonTitle:@"Cancel"
+                                               otherButtonTitles:@"OK", nil];
+    alertView.delegate = self;
     
-    // Save the context.
-    NSError *error = nil;
-    if (![context save:&error]) {
-         // Replace this implementation with code to handle the error appropriately.
-         // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development. 
-        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-        abort();
+    [alertView setValue:nameField forKey:@"accessoryView"];
+    [alertView show];
+}
+
+#pragma mark - Alert View Delegate Methods
+
+- (void)alertView:(UIAlertView *)alertView willDismissWithButtonIndex:(NSInteger)buttonIndex {
+
+    if (buttonIndex == 1 && ![nameField.text isEqualToString:@""]) { // OK button tapped
+        NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
+        NSEntityDescription *entity = [[self.fetchedResultsController fetchRequest] entity];
+        NSManagedObject *newManagedObject = [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:context];
+        
+        // If appropriate, configure the new managed object.
+        // Normally you should use accessor methods, but using KVC here avoids the need to add a custom class to the template.
+        [newManagedObject setValue:nameField.text forKey:@"name"];
+        [nameField setText:@""];
+        // Save the context.
+        NSError *error = nil;
+        if (![context save:&error]) {
+            // Replace this implementation with code to handle the error appropriately.
+            // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+            NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+            abort();
+        }
     }
 }
+
 
 #pragma mark - Table View
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return [[self.fetchedResultsController sections] count];
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -85,7 +117,7 @@
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Return NO if you do not want the specified item to be editable.
-    return YES;
+    return NO;
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
@@ -137,16 +169,17 @@
     
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     // Edit the entity name as appropriate.
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Event" inManagedObjectContext:self.managedObjectContext];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Campaign" inManagedObjectContext:self.managedObjectContext];
     [fetchRequest setEntity:entity];
     
     // Set the batch size to a suitable number.
     [fetchRequest setFetchBatchSize:20];
     
     // Edit the sort key as appropriate.
-    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"timeStamp" ascending:NO];
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
+
     NSArray *sortDescriptors = @[sortDescriptor];
-    
+//
     [fetchRequest setSortDescriptors:sortDescriptors];
     
     // Edit the section name key path and cache name if appropriate.
@@ -229,7 +262,7 @@
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
     NSManagedObject *object = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    cell.textLabel.text = [[object valueForKey:@"timeStamp"] description];
+    cell.textLabel.text = [[object valueForKey:@"name"] description];
 }
 
 @end

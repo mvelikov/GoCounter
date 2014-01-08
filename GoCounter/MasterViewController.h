@@ -1,8 +1,8 @@
 //
 //  MasterViewController.h
-//  GoCounter
+//  Customers Counter
 //
-//  Created by mihata on 1/9/14.
+//  Created by mihata on 1/6/14.
 //  Copyright (c) 2014 mihata. All rights reserved.
 //
 
@@ -12,7 +12,7 @@
 
 #import <CoreData/CoreData.h>
 
-@interface MasterViewController : UITableViewController <NSFetchedResultsControllerDelegate>
+@interface MasterViewController : UITableViewController <NSFetchedResultsControllerDelegate, UIAlertViewDelegate>
 
 @property (strong, nonatomic) DetailViewController *detailViewController;
 
