@@ -2,7 +2,7 @@
 //  DetailViewController.m
 //  GoCounter
 //
-//  Created by mihata on 1/9/14.
+//  Created by mihata on 1/6/14.
 //  Copyright (c) 2014 mihata. All rights reserved.
 //
 
@@ -36,7 +36,7 @@
     // Update the user interface for the detail item.
 
     if (self.detailItem) {
-        self.detailDescriptionLabel.text = [[self.detailItem valueForKey:@"timeStamp"] description];
+        self.detailDescriptionLabel.text = [[self.detailItem valueForKey:@"name"] description];
     }
 }
 
