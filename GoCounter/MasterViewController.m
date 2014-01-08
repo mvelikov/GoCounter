@@ -93,6 +93,9 @@
     }
 }
 
+- (void)didPresentAlertView:(UIAlertView *)alertView {
+    [nameField becomeFirstResponder];
+}
 
 #pragma mark - Table View
 
