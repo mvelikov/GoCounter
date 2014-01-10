@@ -92,7 +92,7 @@
     NSString *categoryString = [[categories objectAtIndex:indexPath.row] capitalizedString];
 
     cell.textLabel.text = categoryString;
-    UIImageView *addImage = [[UIImageView alloc] initWithFrame: CGRectMake(cell.frame.size.width - 32, 10, 44, 44)];
+    UIImageView *addImage = [[UIImageView alloc] initWithFrame: CGRectMake(cell.frame.size.width - 48, 0, 44, 44)];
     [cell.contentView addSubview:addImage];
     addImage.image = [UIImage imageNamed:@"small-icon-add.png"];
 //    addImage.frame = ;
@@ -105,9 +105,9 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSLog(@"se'e");
-    UITableViewCell *thisCell = [tableView cellForRowAtIndexPath:indexPath];
-
-    thisCell.selectionStyle = UITableViewCellSelectionStyleNone;
+//    UITableViewCell *thisCell = [tableView cellForRowAtIndexPath:indexPath];
+//
+//    thisCell.selectionStyle = UITableViewCellSelectionStyleNone;
 }
 
 
