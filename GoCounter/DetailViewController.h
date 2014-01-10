@@ -8,11 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DetailViewController : UITableViewController <UISplitViewControllerDelegate>
+@interface DetailViewController : UITableViewController <UISplitViewControllerDelegate, NSFetchedResultsControllerDelegate>
 
 @property (strong, nonatomic) id detailItem;
 
 @property (weak, nonatomic) IBOutlet UILabel *detailDescriptionLabel;
 
 @property (strong, nonatomic) NSArray *categories;
+
+@property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
+@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @end
