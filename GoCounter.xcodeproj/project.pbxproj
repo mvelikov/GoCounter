@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C1FF99C18800F5C008A95EF /* icon-add.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C1FF99B18800F5C008A95EF /* icon-add.png */; };
+		0C1FF99E18801158008A95EF /* small-icon-add.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C1FF99D18801158008A95EF /* small-icon-add.png */; };
 		0C5B9481187E15080090E15B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C5B9480187E15080090E15B /* Foundation.framework */; };
 		0C5B9483187E15080090E15B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C5B9482187E15080090E15B /* CoreGraphics.framework */; };
 		0C5B9485187E15080090E15B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C5B9484187E15080090E15B /* UIKit.framework */; };
@@ -41,6 +43,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0C1FF99B18800F5C008A95EF /* icon-add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-add.png"; sourceTree = "<group>"; };
+		0C1FF99D18801158008A95EF /* small-icon-add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "small-icon-add.png"; sourceTree = "<group>"; };
 		0C5B947D187E15080090E15B /* GoCounter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoCounter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0C5B9480187E15080090E15B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		0C5B9482187E15080090E15B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -146,6 +150,8 @@
 		0C5B9489187E15080090E15B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				0C1FF99D18801158008A95EF /* small-icon-add.png */,
+				0C1FF99B18800F5C008A95EF /* icon-add.png */,
 				0C5B948A187E15080090E15B /* GoCounter-Info.plist */,
 				0C5B948B187E15080090E15B /* InfoPlist.strings */,
 				0C5B948E187E15080090E15B /* main.m */,
@@ -279,10 +285,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0C1FF99E18801158008A95EF /* small-icon-add.png in Resources */,
 				0C5B94D7187E16BE0090E15B /* Main_iPhone.storyboard in Resources */,
 				0C5B9499187E15080090E15B /* Main_iPad.storyboard in Resources */,
 				0C5B94A4187E15080090E15B /* Images.xcassets in Resources */,
 				0C5B948D187E15080090E15B /* InfoPlist.strings in Resources */,
+				0C1FF99C18800F5C008A95EF /* icon-add.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -526,6 +534,7 @@
 				0C5B94BD187E15080090E15B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0C5B94BE187E15080090E15B /* Build configuration list for PBXNativeTarget "GoCounterTests" */ = {
 			isa = XCConfigurationList;
@@ -534,6 +543,7 @@
 				0C5B94C0187E15080090E15B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

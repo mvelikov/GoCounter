@@ -14,6 +14,7 @@
 @end
 
 @implementation DetailViewController
+@synthesize categories;
 
 #pragma mark - Managing the detail item
 
@@ -42,6 +43,7 @@
 
 - (void)viewDidLoad
 {
+    categories = [[NSArray alloc] initWithObjects:@"none", @"childern", @"adults", @"pensioners", nil];
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     [self configureView];
@@ -87,19 +89,25 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithFrame:CGRectZero];
     }
+    NSString *categoryString = [[categories objectAtIndex:indexPath.row] capitalizedString];
 
+    cell.textLabel.text = categoryString;
+    UIImageView *addImage = [[UIImageView alloc] initWithFrame: CGRectMake(cell.frame.size.width - 32, 10, 44, 44)];
+    [cell.contentView addSubview:addImage];
+    addImage.image = [UIImage imageNamed:@"small-icon-add.png"];
+//    addImage.frame = ;
+    [cell.contentView addSubview:addImage];
+//    cell.imageView.image =
     return cell;
 }
 
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // The table view should not be re-orderable.
-    return NO;
-}
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    NSLog(@"se'e");
+    UITableViewCell *thisCell = [tableView cellForRowAtIndexPath:indexPath];
 
+    thisCell.selectionStyle = UITableViewCellSelectionStyleNone;
 }
 
 
