@@ -108,6 +108,16 @@
 //    UITableViewCell *thisCell = [tableView cellForRowAtIndexPath:indexPath];
 //
 //    thisCell.selectionStyle = UITableViewCellSelectionStyleNone;
+    NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
+    NSEntityDescription *entity = [[self.fetchedResultsController fetchRequest] entity];
+    NSManagedObject *newManagedObject = [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:context];
+    [newManagedObject setValue:[NSNumber numberWithInteger: indexPath.row ] forKey:@"age"];
+    [newManagedObject setValue:[NSDate date] forKey:@"timestamp"];
+    NSError *error = nil;
+    if (![context save:&error]) {
+        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+        abort();
+    }
 }
 
 
@@ -154,7 +164,7 @@
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller
 {
     // In the simplest, most efficient, case, reload the table view.
-    [self.tableView reloadData];
+//    [self.tableView reloadData];
 }
 
 
