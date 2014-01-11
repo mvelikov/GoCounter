@@ -37,14 +37,14 @@
 {
     // Update the user interface for the detail item.
 
-    if (self.detailItem) {
-        self.detailDescriptionLabel.text = [[self.detailItem valueForKey:@"name"] description];
+    if (self.managedObjectContext) {
+        categories = [[NSArray alloc] initWithObjects:@"none", @"childern", @"adults", @"pensioners", nil];
+        [self.tableView reloadData];
     }
 }
 
 - (void)viewDidLoad
 {
-    categories = [[NSArray alloc] initWithObjects:@"none", @"childern", @"adults", @"pensioners", nil];
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     [self configureView];
@@ -80,6 +80,22 @@
 
 #pragma mark - Table View
 
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 18)];
+    /* Create custom view to display section header... */
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 5, tableView.frame.size.width, 18)];
+    [label setFont:[UIFont boldSystemFontOfSize:12]];
+    
+    /* Section header is in 0th index... */
+    [label setText:@"Tap on a Group to Add a Customer"];
+    [view addSubview:label];
+    //    [view setBackgroundColor:[UIColor colorWithRed:166/255.0 green:177/255.0 blue:186/255.0 alpha:1.0]]; //your background color...
+    return view;
+}
+
+
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 1;
@@ -87,7 +103,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 4;
+    return [categories count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -99,7 +115,8 @@
     NSString *categoryString = [[categories objectAtIndex:indexPath.row] capitalizedString];
 
     cell.textLabel.text = categoryString;
-    UIImageView *addImage = [[UIImageView alloc] initWithFrame: CGRectMake(cell.frame.size.width - 48, 0, 44, 44)];
+    
+    UIImageView *addImage = [[UIImageView alloc] initWithFrame:  CGRectMake(self.view.frame.size.width - 48, 0, 44, 44)];
     [cell.contentView addSubview:addImage];
     addImage.image = [UIImage imageNamed:@"small-icon-add.png"];
 //    addImage.frame = ;
@@ -107,7 +124,6 @@
 //    cell.imageView.image =
     return cell;
 }
-
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -124,10 +140,9 @@
     }
     
     [self.fetchedResultsController performFetch:&error];
-    NSLog(@"Customer has just been counted!");
+
     [self.navigationController.view makeToast:@"Customer has just been counted!"  ];
 }
-
 
 #pragma mark - Fetched results controller
 
