@@ -10,4 +10,7 @@
 
 @interface MasterStatisticsViewController : UITableViewController
 
+@property (strong, nonatomic) NSArray *categories;
+@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
+
 @end
