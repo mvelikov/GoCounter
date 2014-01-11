@@ -16,4 +16,5 @@ profile
 
 #Pods
 Pods/
+Podsfile.lock
 .DS_Store
