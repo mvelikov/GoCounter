@@ -7,6 +7,7 @@
 //
 
 #import "DetailViewController.h"
+#import "Toast+UIview.h"
 
 @interface DetailViewController ()
 @property (strong, nonatomic) UIPopoverController *masterPopoverController;
@@ -122,7 +123,9 @@
         abort();
     }
     
-    [self.fetchedResultsController performFetch:&error];    
+    [self.fetchedResultsController performFetch:&error];
+    NSLog(@"Customer has just been counted!");
+    [self.navigationController.view makeToast:@"Customer has just been counted!"  ];
 }
 
 
