@@ -107,7 +107,7 @@
     [label setFont:[UIFont boldSystemFontOfSize:12]];
 
     /* Section header is in 0th index... */
-    [label setText:@"Choose a Campaign or Add a New One"];
+    [label setText:@"Choose a campaign or add a new one"];
     [view addSubview:label];
 //    [view setBackgroundColor:[UIColor colorWithRed:166/255.0 green:177/255.0 blue:186/255.0 alpha:1.0]]; //your background color...
     return view;

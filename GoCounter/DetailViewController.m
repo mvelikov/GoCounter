@@ -88,7 +88,7 @@
     [label setFont:[UIFont boldSystemFontOfSize:12]];
     
     /* Section header is in 0th index... */
-    [label setText:@"Tap on a Group to Add a Customer"];
+    [label setText:@"Tap on a group to add a customer"];
     [view addSubview:label];
     //    [view setBackgroundColor:[UIColor colorWithRed:166/255.0 green:177/255.0 blue:186/255.0 alpha:1.0]]; //your background color...
     return view;
@@ -141,7 +141,7 @@
     
     [self.fetchedResultsController performFetch:&error];
 
-    [self.navigationController.view makeToast:@"Customer has just been counted!"  ];
+    [self.navigationController.view makeToast:@"Customer has just been counted!" duration:1.0 position:@"bottom"];
 }
 
 #pragma mark - Fetched results controller
