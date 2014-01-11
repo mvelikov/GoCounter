@@ -31,6 +31,7 @@
 		0C5B94D4187E16270090E15B /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C5B94D3187E16270090E15B /* MasterViewController.m */; };
 		0C5B94D7187E16BE0090E15B /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0C5B94D5187E16BE0090E15B /* Main_iPhone.storyboard */; };
 		0C87CFC71881A8EB00E8DA45 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C87CFC61881A8EB00E8DA45 /* QuartzCore.framework */; };
+		0C87D0141881F97B00E8DA45 /* MasterStatisticsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C87D0131881F97B00E8DA45 /* MasterStatisticsViewController.m */; };
 		A576BFA5D6B94868B50706D1 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AB5F0EB8B70420895A7A8DD /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -76,6 +77,8 @@
 		0C5B94D3187E16270090E15B /* MasterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
 		0C5B94D6187E16BE0090E15B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
 		0C87CFC61881A8EB00E8DA45 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		0C87D0121881F97B00E8DA45 /* MasterStatisticsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MasterStatisticsViewController.h; sourceTree = "<group>"; };
+		0C87D0131881F97B00E8DA45 /* MasterStatisticsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MasterStatisticsViewController.m; sourceTree = "<group>"; };
 		6AB5F0EB8B70420895A7A8DD /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		96261160647747C1ADA72611 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -202,10 +205,8 @@
 		0C5B94C2187E156A0090E15B /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				0C5B94D2187E16270090E15B /* MasterViewController.h */,
-				0C5B94D3187E16270090E15B /* MasterViewController.m */,
-				0C5B94CF187E161E0090E15B /* DetailViewController.h */,
-				0C5B94D0187E161E0090E15B /* DetailViewController.m */,
+				0C87D0111881F94500E8DA45 /* Statistics */,
+				0C87D0101881F7BD00E8DA45 /* Campaigns */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -217,6 +218,26 @@
 				0C5B9497187E15080090E15B /* Main_iPad.storyboard */,
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		0C87D0101881F7BD00E8DA45 /* Campaigns */ = {
+			isa = PBXGroup;
+			children = (
+				0C5B94D2187E16270090E15B /* MasterViewController.h */,
+				0C5B94D3187E16270090E15B /* MasterViewController.m */,
+				0C5B94CF187E161E0090E15B /* DetailViewController.h */,
+				0C5B94D0187E161E0090E15B /* DetailViewController.m */,
+			);
+			name = Campaigns;
+			sourceTree = "<group>";
+		};
+		0C87D0111881F94500E8DA45 /* Statistics */ = {
+			isa = PBXGroup;
+			children = (
+				0C87D0121881F97B00E8DA45 /* MasterStatisticsViewController.h */,
+				0C87D0131881F97B00E8DA45 /* MasterStatisticsViewController.m */,
+			);
+			name = Statistics;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -356,6 +377,7 @@
 			files = (
 				0C5B94CC187E15AB0090E15B /* GoCounter.xcdatamodeld in Sources */,
 				0C5B94C8187E15910090E15B /* Campaign.m in Sources */,
+				0C87D0141881F97B00E8DA45 /* MasterStatisticsViewController.m in Sources */,
 				0C5B9493187E15080090E15B /* AppDelegate.m in Sources */,
 				0C5B948F187E15080090E15B /* main.m in Sources */,
 				0C5B94C9187E15910090E15B /* Customer.m in Sources */,
