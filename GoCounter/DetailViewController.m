@@ -55,6 +55,12 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void) setManagedObjectContext:(NSManagedObjectContext *)newManagedContext {
+    if (_managedObjectContext != newManagedContext) {
+        _managedObjectContext = newManagedContext;
+    }
+}
+
 #pragma mark - Split view
 
 - (void)splitViewController:(UISplitViewController *)splitController willHideViewController:(UIViewController *)viewController withBarButtonItem:(UIBarButtonItem *)barButtonItem forPopoverController:(UIPopoverController *)popoverController
@@ -104,20 +110,19 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"se'e");
-//    UITableViewCell *thisCell = [tableView cellForRowAtIndexPath:indexPath];
-//
-//    thisCell.selectionStyle = UITableViewCellSelectionStyleNone;
     NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
     NSEntityDescription *entity = [[self.fetchedResultsController fetchRequest] entity];
     NSManagedObject *newManagedObject = [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:context];
     [newManagedObject setValue:[NSNumber numberWithInteger: indexPath.row ] forKey:@"age"];
     [newManagedObject setValue:[NSDate date] forKey:@"timestamp"];
+//    [newManagedObject setValue:self.campaignObject forKey:@"Campaign"];
     NSError *error = nil;
     if (![context save:&error]) {
         NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
         abort();
     }
+    
+    [self.fetchedResultsController performFetch:&error];    
 }
 
 
@@ -138,7 +143,7 @@
     [fetchRequest setFetchBatchSize:20];
     
     // Edit the sort key as appropriate.
-    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"date" ascending:YES];
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"timestamp" ascending:YES];
     
     NSArray *sortDescriptors = @[sortDescriptor];
     //
