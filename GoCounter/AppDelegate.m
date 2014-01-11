@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 
 #import "MasterViewController.h"
+#import "DetailStatisticsViewController.h"
 
 @implementation AppDelegate
 
@@ -29,9 +30,15 @@
         controller.managedObjectContext = self.managedObjectContext;
     } else {
         UITabBarController *tbc = (UITabBarController*) self.window.rootViewController;
-        UINavigationController *navigationController = tbc.viewControllers[0];
-        MasterViewController *controller = (MasterViewController *)navigationController.topViewController;
-        controller.managedObjectContext = self.managedObjectContext;
+        UINavigationController *campaignsNavigationController = tbc.viewControllers[0];
+        MasterViewController *campaignController = (MasterViewController *)campaignsNavigationController.topViewController;
+        campaignController.managedObjectContext = self.managedObjectContext;
+        
+        UINavigationController *statisticsNavigationController = tbc.viewControllers[1];
+        DetailStatisticsViewController *statisticsController = (DetailStatisticsViewController*)statisticsNavigationController.topViewController;
+        statisticsController.managedObjectContext = self.managedObjectContext;
+
+        
     }
     return YES;
 }
