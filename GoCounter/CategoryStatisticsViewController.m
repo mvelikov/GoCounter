@@ -29,7 +29,7 @@
 {
     [super viewDidLoad];
     
-    categories = [[NSArray alloc] initWithObjects:@"By Group", @"By Date", @"By Hour", nil];
+    categories = [[NSArray alloc] initWithObjects:@"By Group", nil]; //, @"By Date", @"By Hour"
     self.detailViewController = (DetailStatisticsViewController*) [[self.splitViewController.viewControllers lastObject] topViewController];
 
     // Uncomment the following line to preserve selection between presentations.
