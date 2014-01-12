@@ -157,10 +157,10 @@
             </objects>
             <point key="canvasLocation" x="802" y="-836"/>
         </scene>
-        <!--Table View Controller - Results-->
+        <!--Detail Statistics View Controller - Results-->
         <scene sceneID="vUM-DB-cTk">
             <objects>
-                <tableViewController id="gBF-ba-M6O" sceneMemberID="viewController">
+                <tableViewController id="gBF-ba-M6O" customClass="DetailStatisticsViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="G9b-iL-nc0">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -214,7 +214,7 @@
             </objects>
             <point key="canvasLocation" x="-102" y="-161"/>
         </scene>
-        <!--Master View Controller - Campaigns-->
+        <!--Master View Controller - Campaign Statistics-->
         <scene sceneID="rSo-CJ-xGs">
             <objects>
                 <tableViewController id="zgC-Ix-91O" customClass="MasterViewController" sceneMemberID="viewController">
@@ -249,7 +249,7 @@
                             <outlet property="delegate" destination="zgC-Ix-91O" id="4pE-33-ibq"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Campaigns" id="V4a-L5-NI4"/>
+                    <navigationItem key="navigationItem" title="Campaign Statistics" id="V4a-L5-NI4"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="96l-Pj-2nK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
