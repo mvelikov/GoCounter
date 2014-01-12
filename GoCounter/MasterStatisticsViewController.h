@@ -7,8 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+@class DetailStatisticsViewController;
 
 @interface MasterStatisticsViewController : UITableViewController
+
+@property (strong, nonatomic) DetailStatisticsViewController *detailViewController;
 
 @property (strong, nonatomic) NSArray *categories;
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;

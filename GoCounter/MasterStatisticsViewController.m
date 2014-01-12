@@ -7,6 +7,7 @@
 //
 
 #import "MasterStatisticsViewController.h"
+#import "DetailStatisticsViewController.h"
 
 @interface MasterStatisticsViewController ()
 
@@ -27,7 +28,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
     categories = [[NSArray alloc] initWithObjects:@"By Group", @"By Date", @"By Hour", nil];
+    self.detailViewController = (DetailStatisticsViewController*) [[self.splitViewController.viewControllers lastObject] topViewController];
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -83,7 +86,8 @@
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
     if ([[segue identifier] isEqualToString:@"showResults"]) {
-        
+        [[segue destinationViewController] setManagedObjectContext:self.managedObjectContext];
+        [[segue destinationViewController] setSelectedCategory: [sender intValue]];
     }
 }
 
