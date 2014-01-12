@@ -31,7 +31,7 @@
 		0C5B94D4187E16270090E15B /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C5B94D3187E16270090E15B /* MasterViewController.m */; };
 		0C5B94D7187E16BE0090E15B /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0C5B94D5187E16BE0090E15B /* Main_iPhone.storyboard */; };
 		0C87CFC71881A8EB00E8DA45 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C87CFC61881A8EB00E8DA45 /* QuartzCore.framework */; };
-		0C87D0141881F97B00E8DA45 /* MasterStatisticsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C87D0131881F97B00E8DA45 /* MasterStatisticsViewController.m */; };
+		0C87D0141881F97B00E8DA45 /* CategoryStatisticsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C87D0131881F97B00E8DA45 /* CategoryStatisticsViewController.m */; };
 		0C87D0171882015E00E8DA45 /* DetailStatisticsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C87D0161882015E00E8DA45 /* DetailStatisticsViewController.m */; };
 		0C87D01A1882AE9B00E8DA45 /* MasterCampaignsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C87D0191882AE9B00E8DA45 /* MasterCampaignsViewController.m */; };
 		A576BFA5D6B94868B50706D1 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AB5F0EB8B70420895A7A8DD /* libPods.a */; };
@@ -79,8 +79,8 @@
 		0C5B94D3187E16270090E15B /* MasterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
 		0C5B94D6187E16BE0090E15B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
 		0C87CFC61881A8EB00E8DA45 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		0C87D0121881F97B00E8DA45 /* MasterStatisticsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MasterStatisticsViewController.h; sourceTree = "<group>"; };
-		0C87D0131881F97B00E8DA45 /* MasterStatisticsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MasterStatisticsViewController.m; sourceTree = "<group>"; };
+		0C87D0121881F97B00E8DA45 /* CategoryStatisticsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoryStatisticsViewController.h; sourceTree = "<group>"; };
+		0C87D0131881F97B00E8DA45 /* CategoryStatisticsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoryStatisticsViewController.m; sourceTree = "<group>"; };
 		0C87D0151882015E00E8DA45 /* DetailStatisticsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailStatisticsViewController.h; sourceTree = "<group>"; };
 		0C87D0161882015E00E8DA45 /* DetailStatisticsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailStatisticsViewController.m; sourceTree = "<group>"; };
 		0C87D0181882AE9B00E8DA45 /* MasterCampaignsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MasterCampaignsViewController.h; sourceTree = "<group>"; };
@@ -242,8 +242,8 @@
 		0C87D0111881F94500E8DA45 /* Statistics */ = {
 			isa = PBXGroup;
 			children = (
-				0C87D0121881F97B00E8DA45 /* MasterStatisticsViewController.h */,
-				0C87D0131881F97B00E8DA45 /* MasterStatisticsViewController.m */,
+				0C87D0121881F97B00E8DA45 /* CategoryStatisticsViewController.h */,
+				0C87D0131881F97B00E8DA45 /* CategoryStatisticsViewController.m */,
 				0C87D0151882015E00E8DA45 /* DetailStatisticsViewController.h */,
 				0C87D0161882015E00E8DA45 /* DetailStatisticsViewController.m */,
 			);
@@ -389,7 +389,7 @@
 				0C5B94CC187E15AB0090E15B /* GoCounter.xcdatamodeld in Sources */,
 				0C87D01A1882AE9B00E8DA45 /* MasterCampaignsViewController.m in Sources */,
 				0C5B94C8187E15910090E15B /* Campaign.m in Sources */,
-				0C87D0141881F97B00E8DA45 /* MasterStatisticsViewController.m in Sources */,
+				0C87D0141881F97B00E8DA45 /* CategoryStatisticsViewController.m in Sources */,
 				0C5B9493187E15080090E15B /* AppDelegate.m in Sources */,
 				0C5B948F187E15080090E15B /* main.m in Sources */,
 				0C5B94C9187E15910090E15B /* Customer.m in Sources */,

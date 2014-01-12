@@ -6,14 +6,14 @@
 //  Copyright (c) 2014 mihata. All rights reserved.
 //
 
-#import "MasterStatisticsViewController.h"
+#import "CategoryStatisticsViewController.h"
 #import "DetailStatisticsViewController.h"
 
-@interface MasterStatisticsViewController ()
+@interface CategoryStatisticsViewController ()
 
 @end
 
-@implementation MasterStatisticsViewController
+@implementation CategoryStatisticsViewController
 
 @synthesize categories;
 - (id)initWithStyle:(UITableViewStyle)style

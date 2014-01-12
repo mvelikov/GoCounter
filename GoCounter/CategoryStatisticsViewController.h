@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 @class DetailStatisticsViewController;
 
-@interface MasterStatisticsViewController : UITableViewController
+@interface CategoryStatisticsViewController : UITableViewController
 
 @property (strong, nonatomic) DetailStatisticsViewController *detailViewController;
 
