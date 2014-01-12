@@ -25,6 +25,9 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
+- (void) viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -54,17 +57,18 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    UITableViewCell *cell = (UITableViewCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithFrame:CGRectZero];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle
+                                    reuseIdentifier:CellIdentifier];
     }
     // Configure the cell...
-//    NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
-//    NSEntityDescription *entity = [[self.fetchedResultsController fetchRequest] entity];
 
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     [request setEntity:[NSEntityDescription entityForName:@"Customer" inManagedObjectContext:self.managedObjectContext]];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"age == %d", indexPath.row];
+    [request setPredicate:predicate];
     
     [request setIncludesSubentities:NO]; //Omit subentities. Default is YES (i.e. include subentities)
     
@@ -73,9 +77,20 @@
     if(count == NSNotFound) {
         //Handle error
     }
+    
+    UILabel *countBadgeLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.view.frame.size.width - 64, 8, cell.frame.size.height, cell.frame.size.height - 16)];
 
-    NSLog(@"%d", count);
+    [countBadgeLabel setTextAlignment:NSTextAlignmentCenter];
+    countBadgeLabel.layer.cornerRadius = cell.frame.size.height / 4;
+    countBadgeLabel.text = [[NSString alloc] initWithFormat:@"%d", count];
+    [countBadgeLabel setShadowColor:[UIColor lightGrayColor]];
+    [countBadgeLabel setBackgroundColor:[UIColor colorWithRed:200/255 green:200/255 blue:200/255 alpha:0.1]];
+    [countBadgeLabel setShadowOffset:CGSizeMake(1, 1)];
+//    [countBadgeLabel sizeToFit];
+
+    [cell.contentView addSubview:countBadgeLabel];
     cell.textLabel.text = [categories[indexPath.row] capitalizedString];
+
     return cell;
 }
 
