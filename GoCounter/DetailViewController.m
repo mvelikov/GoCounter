@@ -38,7 +38,7 @@
     // Update the user interface for the detail item.
 
     if (self.managedObjectContext) {
-        categories = [[NSArray alloc] initWithObjects:@"none", @"childern", @"adults", @"pensioners", nil];
+        categories = [Helper getCategories];
         [self.tableView reloadData];
     }
 }
@@ -141,7 +141,7 @@
     
     [self.fetchedResultsController performFetch:&error];
 
-    [self.navigationController.view makeToast:@"Customer has just been counted!" duration:1.0 position:@"bottom"];
+    [self.navigationController.view makeToast:@"Customer has just been counted!" duration:1.0 position:@"center"];
 }
 
 #pragma mark - Fetched results controller
