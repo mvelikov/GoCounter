@@ -240,7 +240,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="K3o-fw-Tl5" kind="push" id="SLg-ee-RJ5"/>
+                                    <segue destination="K3o-fw-Tl5" kind="push" identifier="showStatisticCategories" id="SLg-ee-RJ5"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

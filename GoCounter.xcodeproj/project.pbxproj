@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C1C4DF418833D9600301E15 /* Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C1C4DF318833D9600301E15 /* Helper.m */; };
 		0C1FF99C18800F5C008A95EF /* icon-add.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C1FF99B18800F5C008A95EF /* icon-add.png */; };
 		0C1FF99E18801158008A95EF /* small-icon-add.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C1FF99D18801158008A95EF /* small-icon-add.png */; };
 		0C5B9481187E15080090E15B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C5B9480187E15080090E15B /* Foundation.framework */; };
@@ -48,6 +49,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0C1C4DF218833D9600301E15 /* Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Helper.h; sourceTree = "<group>"; };
+		0C1C4DF318833D9600301E15 /* Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Helper.m; sourceTree = "<group>"; };
 		0C1FF99B18800F5C008A95EF /* icon-add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-add.png"; sourceTree = "<group>"; };
 		0C1FF99D18801158008A95EF /* small-icon-add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "small-icon-add.png"; sourceTree = "<group>"; };
 		0C5B947D187E15080090E15B /* GoCounter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoCounter.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -162,6 +165,8 @@
 				0C5B94A3187E15080090E15B /* Images.xcassets */,
 				0C5B94CA187E15AB0090E15B /* GoCounter.xcdatamodeld */,
 				0C5B9489187E15080090E15B /* Supporting Files */,
+				0C1C4DF218833D9600301E15 /* Helper.h */,
+				0C1C4DF318833D9600301E15 /* Helper.m */,
 			);
 			path = GoCounter;
 			sourceTree = "<group>";
@@ -393,6 +398,7 @@
 				0C5B9493187E15080090E15B /* AppDelegate.m in Sources */,
 				0C5B948F187E15080090E15B /* main.m in Sources */,
 				0C5B94C9187E15910090E15B /* Customer.m in Sources */,
+				0C1C4DF418833D9600301E15 /* Helper.m in Sources */,
 				0C5B94D1187E161E0090E15B /* DetailViewController.m in Sources */,
 				0C5B94D4187E16270090E15B /* MasterViewController.m in Sources */,
 			);

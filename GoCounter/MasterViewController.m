@@ -106,7 +106,7 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if ([[segue identifier] isEqualToString:@"showDetail"]) {
+    if ([[segue identifier] isEqualToString:@"showDetail"] || [[segue identifier] isEqualToString:@"showStatisticCategories"]) {
         [[segue destinationViewController] setManagedObjectContext:self.managedObjectContext];
     }
 }
