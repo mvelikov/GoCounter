@@ -87,7 +87,10 @@
     // Pass the selected object to the new view controller.
     if ([[segue identifier] isEqualToString:@"showResults"]) {
         [[segue destinationViewController] setManagedObjectContext:self.managedObjectContext];
-        [[segue destinationViewController] setSelectedCategory: [sender intValue]];
+
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
+
+        [[segue destinationViewController] setSelectedCategory: indexPath.row];
     }
 }
 

@@ -31,6 +31,12 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void) setManagedObjectContext:(NSManagedObjectContext *)newManagedContext {
+    if (_managedObjectContext != newManagedContext) {
+        _managedObjectContext = newManagedContext;
+    }
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
