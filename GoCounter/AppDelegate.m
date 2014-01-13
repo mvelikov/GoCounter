@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 
 #import "MasterViewController.h"
+#import "DetailStatisticsViewController.h"
 
 @implementation AppDelegate
 
@@ -28,13 +29,20 @@
         MasterViewController *controller = (MasterViewController *)masterNavigationController.topViewController;
         controller.managedObjectContext = self.managedObjectContext;
     } else {
-        UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
-        MasterViewController *controller = (MasterViewController *)navigationController.topViewController;
-        controller.managedObjectContext = self.managedObjectContext;
+        UITabBarController *tbc = (UITabBarController*) self.window.rootViewController;
+        UINavigationController *campaignsNavigationController = tbc.viewControllers[0];
+        MasterViewController *campaignController = (MasterViewController *)campaignsNavigationController.topViewController;
+        campaignController.managedObjectContext = self.managedObjectContext;
+        
+        UINavigationController *statisticsNavigationController = tbc.viewControllers[1];
+        DetailStatisticsViewController *statisticsController = (DetailStatisticsViewController*)statisticsNavigationController.topViewController;
+        statisticsController.managedObjectContext = self.managedObjectContext;
+
+        
     }
     return YES;
 }
-							
+
 - (void)applicationWillResignActive:(UIApplication *)application
 {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
