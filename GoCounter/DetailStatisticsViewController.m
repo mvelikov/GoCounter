@@ -27,6 +27,7 @@
 
 - (void) viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    [self.tableView reloadData];
 }
 - (void)didReceiveMemoryWarning
 {
@@ -77,9 +78,11 @@
     if(count == NSNotFound) {
         //Handle error
     }
-    
-    UILabel *countBadgeLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.view.frame.size.width - 64, 8, cell.frame.size.height, cell.frame.size.height - 16)];
-
+    UILabel *countBadgeLabel = (UILabel*)[cell.contentView viewWithTag:23];
+    if (countBadgeLabel == nil) {
+         countBadgeLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.view.frame.size.width - 64, 8, cell.frame.size.height, cell.frame.size.height - 16)];
+    }
+    [countBadgeLabel setTag:23];
     [countBadgeLabel setTextAlignment:NSTextAlignmentCenter];
     countBadgeLabel.layer.cornerRadius = cell.frame.size.height / 4;
     countBadgeLabel.text = [[NSString alloc] initWithFormat:@"%d", count];

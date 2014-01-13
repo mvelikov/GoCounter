@@ -214,7 +214,7 @@
             </objects>
             <point key="canvasLocation" x="-102" y="-161"/>
         </scene>
-        <!--Master View Controller - Campaign Statistics-->
+        <!--Master View Controller - Statistics-->
         <scene sceneID="rSo-CJ-xGs">
             <objects>
                 <tableViewController id="zgC-Ix-91O" customClass="MasterViewController" sceneMemberID="viewController">
@@ -249,7 +249,7 @@
                             <outlet property="delegate" destination="zgC-Ix-91O" id="4pE-33-ibq"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Campaign Statistics" id="V4a-L5-NI4"/>
+                    <navigationItem key="navigationItem" title="Statistics" id="V4a-L5-NI4"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="96l-Pj-2nK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
