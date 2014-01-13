@@ -7,6 +7,7 @@
 //
 
 #import "MasterViewController.h"
+#import "DetailStatisticsViewController.h"
 
 #import "Campaign.h"
 
@@ -95,6 +96,8 @@
     if ([[segue identifier] isEqualToString:@"showDetail"] || [[segue identifier] isEqualToString:@"showStatisticCategories"]) {
         [[segue destinationViewController] setManagedObjectContext:self.managedObjectContext];
     }
+    if ([[segue identifier] isEqualToString:@"showStatisticCategories"])
+        [[segue destinationViewController] setSelectedCategory: 0];
 }
 
 #pragma mark - Fetched results controller
