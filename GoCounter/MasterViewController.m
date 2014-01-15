@@ -95,6 +95,11 @@
 {
     if ([[segue identifier] isEqualToString:@"showDetail"] || [[segue identifier] isEqualToString:@"showStatisticCategories"]) {
         [[segue destinationViewController] setManagedObjectContext:self.managedObjectContext];
+        
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
+        Campaign *object = [self.fetchedResultsController objectAtIndexPath:indexPath];
+
+        [[segue destinationViewController] setCampaignObject: object];
     }
     if ([[segue identifier] isEqualToString:@"showStatisticCategories"])
         [[segue destinationViewController] setSelectedCategory: 0];
