@@ -62,6 +62,12 @@
     }
 }
 
+- (void) setCampaignObject:(Campaign*) newCampaignObject {
+    if (_campaignObject != newCampaignObject) {
+        _campaignObject = newCampaignObject;
+    }
+}
+
 #pragma mark - Split view
 
 - (void)splitViewController:(UISplitViewController *)splitController willHideViewController:(UIViewController *)viewController withBarButtonItem:(UIBarButtonItem *)barButtonItem forPopoverController:(UIPopoverController *)popoverController
@@ -129,16 +135,22 @@
 {
     NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
     NSEntityDescription *entity = [[self.fetchedResultsController fetchRequest] entity];
-    NSManagedObject *newManagedObject = [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:context];
+    Customer *newManagedObject = [NSEntityDescription
+                                  insertNewObjectForEntityForName:[entity name]
+                                  inManagedObjectContext:context];
     [newManagedObject setValue:[NSNumber numberWithInteger: indexPath.row ] forKey:@"age"];
     [newManagedObject setValue:[NSDate date] forKey:@"timestamp"];
+
+//    [newManagedObject setValue:_campaignObject forKey:@"Campaign"];
+//    [_campaignObject addCustomerObject:newManagedObject]
+
 //    [newManagedObject setValue:self.campaignObject forKey:@"Campaign"];
     NSError *error = nil;
     if (![context save:&error]) {
         NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
         abort();
     }
-    
+    [_campaignObject addCustomersObject:newManagedObject];
     [self.fetchedResultsController performFetch:&error];
 
     [self.navigationController.view makeToast:@"Customer has just been counted!" duration:1.0 position:@"center"];

@@ -90,7 +90,7 @@
 
         NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
 
-        [[segue destinationViewController] setSelectedCategory: indexPath.row];
+        [[segue destinationViewController] setSelectedCategory: (int)indexPath.row];
     }
 }
 
