@@ -30,6 +30,7 @@
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
     self.navigationItem.rightBarButtonItem = addButton;
     self.detailViewController = (DetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
+//    self.detailViewController = (DetailViewController *)[self.storyboard instantiateViewControllerWithIdentifier:@"campaignDetailViewController"];
     
     nameField = [[UITextField alloc] initWithFrame:CGRectMake(10.0f, 10.0f, 256.0f, 32.0f)];
     [nameField setBackgroundColor:[UIColor whiteColor]];
