@@ -29,6 +29,7 @@
 
 - (void) viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    categoriesCount = [self getCalculatedCustomersByCategory];
     [self.tableView reloadData];
 }
 - (void)didReceiveMemoryWarning
