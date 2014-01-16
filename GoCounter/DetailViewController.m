@@ -153,7 +153,9 @@
     [_campaignObject addCustomersObject:newManagedObject];
     [self.fetchedResultsController performFetch:&error];
 
-    [self.navigationController.view makeToast:@"Customer has just been counted!" duration:1.0 position:@"center"];
+    [self.navigationController.view makeToast:@"Customer has just been counted!"
+                                     duration:1.0
+                                     position:[NSValue valueWithCGPoint:CGPointMake(160, self.view.frame.size.height - 120)]];
 }
 
 #pragma mark - Fetched results controller
