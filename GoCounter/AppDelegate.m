@@ -40,6 +40,7 @@
 
         
     }
+    self.window.tintColor = [UIColor redColor];
     return YES;
 }
 
