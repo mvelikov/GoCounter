@@ -9,15 +9,17 @@
 #import "DetailStatisticsViewController.h"
 
 @interface DetailStatisticsViewController ()
-
+@property (strong, nonatomic) NSMutableArray *categoriesCount;
 @end
 
 @implementation DetailStatisticsViewController
-@synthesize categories;
+@synthesize categories, categoriesCount;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     categories = [Helper getCategories];
+    categoriesCount = [[NSMutableArray alloc] init];
+    categoriesCount = [self getCalculatedCustomersByCategory];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -27,6 +29,7 @@
 
 - (void) viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    categoriesCount = [self getCalculatedCustomersByCategory];
     [self.tableView reloadData];
 }
 - (void)didReceiveMemoryWarning
@@ -39,6 +42,33 @@
     if (_managedObjectContext != newManagedContext) {
         _managedObjectContext = newManagedContext;
     }
+}
+
+- (void) setCampaignObject:(Campaign*) newCampaignObject {
+    if (_campaignObject != newCampaignObject) {
+        _campaignObject = newCampaignObject;
+    }
+}
+
+- (NSMutableArray*) getCalculatedCustomersByCategory {
+    NSMutableArray *ctgryArray;
+    ctgryArray = [[NSMutableArray alloc] init];
+    for (int idx = 0; idx < [categories count]; idx++) {
+        ctgryArray[idx] = [[NSNumber alloc] initWithInt:0];
+    }
+    NSNumber *cnt = [[NSNumber alloc] initWithInt:0];
+    for (Customer* cst in _campaignObject.customers) {
+//        NSLog(@"%ld %d", (long)[[ctgryArray valueForKey:[NSString stringWithFormat:@"%@", cst.age ]] integerValue], [_campaignObject.customers count]);
+        cnt = [ctgryArray objectAtIndex:[cst.age integerValue]];
+        int tmp = [cnt intValue];
+        cnt = [NSNumber numberWithInt:++tmp];
+//        cnt++;
+//        [ctgryArray setValue:cnt forKey:[NSString stringWithFormat:@"%@", cst.age ]];
+        ctgryArray[[cst.age integerValue]] = cnt;
+
+    }
+
+    return ctgryArray;
 }
 
 #pragma mark - Table view data source
@@ -66,18 +96,6 @@
     }
     // Configure the cell...
 
-    NSFetchRequest *request = [[NSFetchRequest alloc] init];
-    [request setEntity:[NSEntityDescription entityForName:@"Customer" inManagedObjectContext:self.managedObjectContext]];
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"age == %d", indexPath.row];
-    [request setPredicate:predicate];
-    
-    [request setIncludesSubentities:NO]; //Omit subentities. Default is YES (i.e. include subentities)
-    
-    NSError *err;
-    NSUInteger count = [self.managedObjectContext countForFetchRequest:request error:&err];
-    if(count == NSNotFound) {
-        //Handle error
-    }
     UILabel *countBadgeLabel = (UILabel*)[cell.contentView viewWithTag:23];
     if (countBadgeLabel == nil) {
          countBadgeLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.view.frame.size.width - 64, 8, cell.frame.size.height, cell.frame.size.height - 16)];
@@ -85,7 +103,8 @@
     [countBadgeLabel setTag:23];
     [countBadgeLabel setTextAlignment:NSTextAlignmentCenter];
     countBadgeLabel.layer.cornerRadius = cell.frame.size.height / 4;
-    countBadgeLabel.text = [[NSString alloc] initWithFormat:@"%d", count];
+    countBadgeLabel.text = [[NSString alloc] initWithFormat:@"%@", categoriesCount[indexPath.row]];
+
     [countBadgeLabel setShadowColor:[UIColor lightGrayColor]];
     [countBadgeLabel setBackgroundColor:[UIColor colorWithRed:200/255 green:200/255 blue:200/255 alpha:0.1]];
     [countBadgeLabel setShadowOffset:CGSizeMake(1, 1)];

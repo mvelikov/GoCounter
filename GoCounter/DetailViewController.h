@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Campaign.h"
+#import "Customer.h"
 
 @interface DetailViewController : UITableViewController <UISplitViewControllerDelegate, NSFetchedResultsControllerDelegate>
 
@@ -19,5 +21,8 @@
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 
+@property (strong, nonatomic) Campaign *campaignObject;
+
 - (void)configureView;
+- (void) setCampaignObject:(Campaign*) newCampaignObject;
 @end
