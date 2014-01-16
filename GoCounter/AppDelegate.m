@@ -20,7 +20,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
+    /*if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
         UISplitViewController *splitViewController = (UISplitViewController *)self.window.rootViewController;
         UINavigationController *navigationController = [splitViewController.viewControllers lastObject];
         splitViewController.delegate = (id)navigationController.topViewController;
@@ -28,7 +28,7 @@
         UINavigationController *masterNavigationController = splitViewController.viewControllers[0];
         MasterViewController *controller = (MasterViewController *)masterNavigationController.topViewController;
         controller.managedObjectContext = self.managedObjectContext;
-    } else {
+    } else {*/
         UITabBarController *tbc = (UITabBarController*) self.window.rootViewController;
         UINavigationController *campaignsNavigationController = tbc.viewControllers[0];
         MasterViewController *campaignController = (MasterViewController *)campaignsNavigationController.topViewController;
@@ -39,7 +39,7 @@
         statisticsController.managedObjectContext = self.managedObjectContext;
 
         
-    }
+    //}
     self.window.tintColor = [UIColor redColor];
     return YES;
 }
