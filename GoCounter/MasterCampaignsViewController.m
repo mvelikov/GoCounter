@@ -56,6 +56,7 @@
                                                         delegate:nil
                                                cancelButtonTitle:@"Cancel"
                                                otherButtonTitles:@"OK", nil];
+    alertView.tintColor = [UIColor redColor];
     alertView.delegate = self;
     
     [alertView setValue:nameField forKey:@"accessoryView"];
