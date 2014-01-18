@@ -65,7 +65,7 @@
             </objects>
             <point key="canvasLocation" x="804" y="351"/>
         </scene>
-        <!--Master View Controller - Root View Controller-->
+        <!--Master View Controller - Statistics-->
         <scene sceneID="brO-hg-Z3E">
             <objects>
                 <tableViewController id="3Vq-72-6cy" customClass="MasterViewController" sceneMemberID="viewController">
@@ -87,17 +87,17 @@
                             </tableViewCell>
                         </prototypes>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="ptN-cG-fZr"/>
+                    <navigationItem key="navigationItem" title="Statistics" id="ptN-cG-fZr"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Of1-LG-VrX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2997" y="1198"/>
         </scene>
-        <!--Navigation Controller - Item-->
+        <!--Navigation Controller - Statistics-->
         <scene sceneID="VWi-0c-PPB">
             <objects>
                 <navigationController definesPresentationContext="YES" id="JLf-uM-jDn" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="OKF-fW-pPb"/>
+                    <tabBarItem key="tabBarItem" title="Statistics" image="stats.png" id="OKF-fW-pPb"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="UtV-ka-4hu">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -135,7 +135,7 @@
             </objects>
             <point key="canvasLocation" x="3878" y="1189"/>
         </scene>
-        <!--Master Campaigns View Controller - Root View Controller-->
+        <!--Master Campaigns View Controller - Campaigns-->
         <scene sceneID="nPH-7U-dYV">
             <objects>
                 <tableViewController id="xZY-WC-A5O" customClass="MasterCampaignsViewController" sceneMemberID="viewController">
@@ -157,17 +157,17 @@
                             </tableViewCell>
                         </prototypes>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="AeB-SB-BwJ"/>
+                    <navigationItem key="navigationItem" title="Campaigns" id="AeB-SB-BwJ"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JJZ-vQ-fqV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2997" y="22"/>
         </scene>
-        <!--Navigation Controller - Item-->
+        <!--Navigation Controller - Campaigns-->
         <scene sceneID="pLl-jN-LjS">
             <objects>
                 <navigationController definesPresentationContext="YES" id="f0e-dI-X9c" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="86B-HL-tKI"/>
+                    <tabBarItem key="tabBarItem" title="Campaigns" image="customers.png" id="86B-HL-tKI"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="hop-3K-B1x">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -250,8 +250,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="customers.png" width="64" height="64"/>
-        <image name="stats.png" width="64" height="64"/>
+        <image name="customers.png" width="32" height="32"/>
+        <image name="stats.png" width="32" height="32"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackOpaque"/>
