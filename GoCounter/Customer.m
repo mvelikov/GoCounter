@@ -16,6 +16,7 @@
 @dynamic latitude;
 @dynamic longitude;
 @dynamic age;
+@dynamic hour;
 @dynamic campaign;
 
 @end
