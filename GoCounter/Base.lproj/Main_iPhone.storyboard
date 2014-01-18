@@ -68,7 +68,7 @@
         <scene sceneID="cUi-kZ-frf">
             <objects>
                 <navigationController id="rS3-R9-Ivy" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Campaigns" id="Bvw-S2-gIy"/>
+                    <tabBarItem key="tabBarItem" title="Campaigns" image="customers.png" id="Bvw-S2-gIy"/>
                     <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="yXu-0R-QUA">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -199,7 +199,7 @@
         <scene sceneID="SyJ-qo-eJf">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ADk-t3-cRz" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Statistics" id="XBg-lS-edX"/>
+                    <tabBarItem key="tabBarItem" title="Statistics" image="stats.png" id="XBg-lS-edX"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="g7g-oE-eLp">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -256,6 +256,10 @@
             <point key="canvasLocation" x="359" y="-161"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="customers.png" width="32" height="32"/>
+        <image name="stats.png" width="32" height="32"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

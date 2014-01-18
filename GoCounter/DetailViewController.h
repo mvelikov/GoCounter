@@ -23,6 +23,7 @@
 
 @property (strong, nonatomic) Campaign *campaignObject;
 
-- (void)configureView;
+- (void) configureView;
 - (void) setCampaignObject:(Campaign*) newCampaignObject;
+- (void) setManagedObjectContext: (NSManagedObjectContext*)newManagedObjectContext;
 @end
