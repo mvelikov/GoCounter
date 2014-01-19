@@ -141,10 +141,11 @@
                                   inManagedObjectContext:context];
     
     NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
-    NSDateComponents *dateComponents = [calendar components:NSHourCalendarUnit fromDate:[NSDate date]];
+    NSDateComponents *dateComponents = [calendar components:(NSHourCalendarUnit | NSDayCalendarUnit) fromDate:[NSDate date]];
     [newManagedObject setValue:[NSNumber numberWithInteger: indexPath.row ] forKey:@"age"];
     [newManagedObject setValue:[NSDate date] forKey:@"timestamp"];
-    [newManagedObject setValue:[NSNumber numberWithInt:[dateComponents hour] ] forKey:@"hour"];
+    [newManagedObject setValue:[NSNumber numberWithInt:[dateComponents hour]] forKey:@"hour"];
+    [newManagedObject setValue:[NSNumber numberWithInt:[dateComponents weekday]] forKey:@"day"];
 
     NSError *error = nil;
     if (![context save:&error]) {
@@ -153,10 +154,10 @@
     }
     [_campaignObject addCustomersObject:newManagedObject];
     [self.fetchedResultsController performFetch:&error];
-#warning Toast is not centered in iPad
+
     [self.navigationController.view makeToast:@"Customer has just been counted!"
                                      duration:1.0
-                                     position:[NSValue valueWithCGPoint:CGPointMake(160, self.view.frame.size.height - 120)]];
+                                     position:[NSValue valueWithCGPoint:CGPointMake(self.view.center.x, self.view.frame.size.height - 120)]];
 }
 
 #pragma mark - Fetched results controller
