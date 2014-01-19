@@ -52,8 +52,8 @@
 - (void)insertNewObject:(id)sender
 {
     
-    UIAlertView *alertView = [[UIAlertView alloc ] initWithTitle:@"title"
-                                                         message:@"text"
+    UIAlertView *alertView = [[UIAlertView alloc ] initWithTitle:@"Campaign Title"
+                                                         message:@"Choose name for you campaign"
                                                         delegate:nil
                                                cancelButtonTitle:@"Cancel"
                                                otherButtonTitles:@"OK", nil];

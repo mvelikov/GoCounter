@@ -56,14 +56,12 @@
     for (int idx = 0; idx < [categories count]; idx++) {
         ctgryArray[idx] = [[NSNumber alloc] initWithInt:0];
     }
-    NSNumber *cnt = [[NSNumber alloc] initWithInt:0];
+    NSNumber *cnt;
     for (Customer* cst in _campaignObject.customers) {
-//        NSLog(@"%ld %d", (long)[[ctgryArray valueForKey:[NSString stringWithFormat:@"%@", cst.age ]] integerValue], [_campaignObject.customers count]);
+
         cnt = [ctgryArray objectAtIndex:[cst.age integerValue]];
         int tmp = [cnt intValue];
         cnt = [NSNumber numberWithInt:++tmp];
-//        cnt++;
-//        [ctgryArray setValue:cnt forKey:[NSString stringWithFormat:@"%@", cst.age ]];
         ctgryArray[[cst.age integerValue]] = cnt;
 
     }
