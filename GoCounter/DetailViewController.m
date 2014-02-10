@@ -139,24 +139,25 @@
     Customer *newManagedObject = [NSEntityDescription
                                   insertNewObjectForEntityForName:[entity name]
                                   inManagedObjectContext:context];
+    
+    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    NSDateComponents *dateComponents = [calendar components:(NSHourCalendarUnit | NSDayCalendarUnit) fromDate:[NSDate date]];
     [newManagedObject setValue:[NSNumber numberWithInteger: indexPath.row ] forKey:@"age"];
     [newManagedObject setValue:[NSDate date] forKey:@"timestamp"];
+    [newManagedObject setValue:[NSNumber numberWithInt:[dateComponents hour]] forKey:@"hour"];
+    [newManagedObject setValue:[NSNumber numberWithInt:[dateComponents weekday]] forKey:@"day"];
 
-//    [newManagedObject setValue:_campaignObject forKey:@"Campaign"];
-//    [_campaignObject addCustomerObject:newManagedObject]
-
-//    [newManagedObject setValue:self.campaignObject forKey:@"Campaign"];
     NSError *error = nil;
     if (![context save:&error]) {
         NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-        abort();
+//        abort();
     }
     [_campaignObject addCustomersObject:newManagedObject];
     [self.fetchedResultsController performFetch:&error];
 
     [self.navigationController.view makeToast:@"Customer has just been counted!"
                                      duration:1.0
-                                     position:[NSValue valueWithCGPoint:CGPointMake(160, self.view.frame.size.height - 120)]];
+                                     position:[NSValue valueWithCGPoint:CGPointMake(self.view.center.x, self.view.frame.size.height - 120)]];
 }
 
 #pragma mark - Fetched results controller
@@ -193,7 +194,7 @@
         // Replace this implementation with code to handle the error appropriately.
         // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
 	    NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-	    abort();
+//	    abort();
 	}
     
     return _fetchedResultsController;

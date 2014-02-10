@@ -17,6 +17,8 @@
 @property (nonatomic, retain) NSNumber * latitude;
 @property (nonatomic, retain) NSNumber * longitude;
 @property (nonatomic, retain) NSNumber * age;
+@property (nonatomic, retain) NSNumber * hour;
+@property (nonatomic, retain) NSNumber * day;
 @property (nonatomic, retain) Campaign *campaign;
 
 @end
